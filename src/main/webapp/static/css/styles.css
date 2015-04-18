@@ -1,0 +1,12 @@
+body {
+
+}
+
+a {
+    transition: all 0.2s ease 0s;
+}
+.password-item {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 30px;
+}
