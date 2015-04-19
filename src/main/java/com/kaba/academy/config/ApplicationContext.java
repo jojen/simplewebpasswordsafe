@@ -9,6 +9,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -29,10 +33,11 @@ import java.util.Properties;
  * @author Petri Kainulainen
  */
 @Configuration
-@ComponentScan(basePackages = {"com.kaba.academy.controller",
-        "com.kaba.academy.service"})
+@ComponentScan(basePackages = {"com.kaba.academy"})
 @EnableTransactionManagement
 @EnableWebMvc
+@EnableWebSecurity
+@EnableGlobalMethodSecurity
 @EnableJpaRepositories
 @ImportResource("classpath:applicationContext.xml")
 @PropertySource("classpath:application.properties")
@@ -119,4 +124,6 @@ public class ApplicationContext {
 
         return viewResolver;
     }
+
+
 }

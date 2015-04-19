@@ -34,7 +34,7 @@ PasswordManager.List = (function () {
             var $input = $('#password-' + $this.data('id'));
             var val = $input.val();
             $.post($this.data('url'), {pw: val}, function (data) {
-                $input.effect( "highlight", {color:"green"}, 3000 );
+                $input.effect( "highlight", {color:"#dff0d8"}, 2000 );
             })
         });
 
