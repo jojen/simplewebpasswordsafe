@@ -41,7 +41,8 @@ public class PasswordController extends AbstractController {
     protected static final String STRING_VIEW = "json/string";
     protected static final String PASSWORD_LIST_VIEW = "password/list";
 
-    protected static final String REQUEST_MAPPING_LIST = "/";
+    protected static final String REQUEST_MAPPING_LIST = "/password";
+    private static final String LOGIN_VIEW = "login";
 
     @Resource
     private PasswordService passwordService;
@@ -49,6 +50,16 @@ public class PasswordController extends AbstractController {
     @Resource
     private EncryptionService encryptionService;
 
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return LOGIN_VIEW;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String root() {
+        return createRedirectViewPath(REQUEST_MAPPING_LIST);
+    }
 
     /**
      * Processes delete password requests.
